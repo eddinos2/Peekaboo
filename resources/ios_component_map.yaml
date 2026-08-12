@@ -1,0 +1,71 @@
+# Apple security advisory component → likely Mach-O / dylib paths.
+# Used as ranking priors over ipsw diff inventory, not hard filters.
+
+Kernel:
+  priority: kernel
+  patterns:
+    - kernelcache
+    - "*.kext"
+  auto_re: false
+
+WebKit:
+  priority: high
+  patterns:
+    - WebKit
+    - JavaScriptCore
+    - WebCore
+
+libxpc:
+  priority: high
+  patterns:
+    - libxpc.dylib
+    - xpcproxy
+    - launchd
+
+TCC:
+  priority: high
+  patterns:
+    - TCC
+    - tccd
+
+CoreCrypto:
+  priority: medium
+  patterns:
+    - libcorecrypto.dylib
+    - CoreCrypto
+
+IOKit:
+  priority: medium
+  patterns:
+    - IOKit
+    - IOUserClient
+
+Sandbox:
+  priority: medium
+  patterns:
+    - sandboxd
+    - libsandbox
+
+ImageIO:
+  priority: high
+  patterns:
+    - ImageIO
+    - libJPEG
+    - libPNG
+
+CoreMedia:
+  priority: medium
+  patterns:
+    - CoreMedia
+    - AVFoundation
+
+Foundation:
+  priority: low
+  patterns:
+    - Foundation.framework
+
+Security:
+  priority: high
+  patterns:
+    - Security.framework
+    - libsecurity*

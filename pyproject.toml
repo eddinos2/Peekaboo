@@ -1,0 +1,69 @@
+[build-system]
+requires = ["hatchling>=1.18"]
+build-backend = "hatchling.build"
+
+[project]
+name = "peekaboo"
+version = "0.1.0"
+description = "Poly-platform CVE patch-diff root-cause analyzer — iOS, Linux, Windows."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+keywords = [
+    "security",
+    "vulnerability-research",
+    "reverse-engineering",
+    "patch-diff",
+    "cve",
+    "ios",
+    "linux",
+    "windows",
+    "langgraph",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Information Technology",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+]
+dependencies = [
+    "beautifulsoup4>=4.12",
+    "chromadb>=1.0",
+    "click>=8.1",
+    "httpx>=0.27",
+    "langchain>=0.3",
+    "langchain-anthropic>=0.3",
+    "langchain-chroma>=0.2",
+    "langchain-community>=0.3",
+    "langchain-core>=0.3",
+    "langchain-openai>=0.3",
+    "langgraph>=0.2",
+    "pydantic>=2.0",
+    "pydantic-settings>=2.0",
+    "pyyaml>=6.0",
+    "rich>=13.0",
+    "structlog>=24.0",
+    "tenacity>=8.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+]
+
+[project.scripts]
+peekaboo = "peekaboo.cli.app:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/peekaboo"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"resources/ios_component_map.yaml" = "peekaboo/_resources/ios_component_map.yaml"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
