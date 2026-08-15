@@ -13,3 +13,7 @@ build/
 _temp/
 db/
 reports/
+
+# Local export caches
+**/cinema.html
+.exports/
