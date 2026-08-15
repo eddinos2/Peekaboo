@@ -105,3 +105,7 @@ Apache-2.0 — see [LICENSE](LICENSE).
 ## Attribution
 
 Architecture inspired by [akamai/patchdiff-ai](https://github.com/akamai/patchdiff-ai).
+
+## Local lint
+
+Optional: `pip install ruff && ruff check src tests` before opening a PR.
