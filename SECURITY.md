@@ -26,3 +26,8 @@ Include the CVE id (if any), platform pipeline, and a minimal reproducer.
 - Quality of LLM root-cause prose
 - Missing coverage for a specific vendor advisory feed
 - Feature requests for additional RE backends
+
+## Also out of scope
+
+- LLM prose quality debates
+- Missing vendor advisory feeds
